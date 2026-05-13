@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Login Page</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.login-container{
+    width:350px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.4);
+
+    color:white;
+}
+
+.login-container h1{
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:2.3rem;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box label{
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:0.95rem;
+}
+
+.input-box input{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.12);
+
+    color:white;
+
+    font-size:1rem;
+}
+
+.input-box input::placeholder{
+    color:#d8d8d8;
+}
+
+.login-btn{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:white;
+
+    color:#111;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#dcdcdc;
+
+    transform:translateY(-3px);
+}
+
+.extra-links{
+    margin-top:18px;
+
+    text-align:center;
+
+    font-size:0.9rem;
+}
+
+.extra-links a{
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+}
+
+.extra-links a:hover{
+    text-decoration:underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h1>Login</h1>
+
+    <form>
+
+        <div class="input-box">
+            <label>Email</label>
+
+            <input
+                type="email"
+                placeholder="Enter your email"
+                required
+            >
+        </div>
+
+        <div class="input-box">
+            <label>Password</label>
+
+            <input
+                type="password"
+                placeholder="Enter your password"
+                required
+            >
+        </div>
+
+        <button type="submit" class="login-btn">
+            Sign In
+        </button>
+
+    </form>
+
+    <div class="extra-links">
+        <p>
+            Don't have an account?
+            <a href="#">Register</a>
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Alvin Portfolio</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+    url('https://scontent.fmnl17-4.fna.fbcdn.net/v/t1.15752-9/663236193_2209042116538604_4455431933729653823_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFXmhX_M6AXh1aLdHfMf55SkMk3xlZB31CQyTfGVkHfULYMRSemQRcOBoryKjj6lWHUNjM6oNteWBUGpv7BXBDO&_nc_ohc=F73MUcrmL9gQ7kNvwH3XYqk&_nc_oc=AdqbZHHpeJWBER3b_LK_W3fTvvPrHjdHhyOaeI_mBgQBF6jxD7T7sTxvO6mz_EmuO7g&_nc_zt=23&_nc_ht=scontent.fmnl17-4.fna&_nc_ss=7c2a8&oh=03_Q7cD5QHyjYmAhtYgxX-MhrzMfR57TLyg4vuUNcX-nDitvehjuQ&oe=6A2AF801');
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+}
+
+/* Blur overlay */
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    backdrop-filter:blur(2px);
+
+    z-index:0;
+}
+
+/* Main container */
+
+.hero-container{
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+
+    max-width:750px;
+
+    padding:50px;
+
+    border-radius:30px;
+
+    background:rgba(0,0,0,0.35);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* Title */
+
+.hero-container h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    font-weight:700;
+
+    text-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Description */
+
+.hero-container p{
+    font-size:1.1rem;
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+    color:#dddddd;
+}
+
+/* Button */
+
+.btn{
+    padding:15px 38px;
+
+    border:none;
+    border-radius:50px;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+
+    background:white;
+    color:#111;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,0.2);
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.03);
+
+    background:#dcdcdc;
+}
+
+/* Popup image */
+
+.popup{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.88);
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    z-index:999;
+}
+
+.popup img{
+    width:340px;
+    max-width:90%;
+
+    border-radius:20px;
+
+    border:4px solid white;
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,0.2);
+}
+
+.close-btn{
+    position:absolute;
+    top:30px;
+    right:40px;
+
+    font-size:2rem;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .hero-container{
+        margin:20px;
+        padding:35px;
+    }
+
+    .hero-container h1{
+        font-size:2.7rem;
+    }
+
+    .hero-container p{
+        font-size:1rem;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero-container">
+
+    <h1>Ako si Alvin Ungab</h1>
+
+    <p>
+        FIELD OF SPECIALIZATION: Photo Manipulation | Video Editing |
+        Graphic Designer | Logo Designing | Digital Illustrations |
+        3D Modeling (Onshape)
+    </p>
+
+    <button class="btn" onclick="openPopup()">
+        Click Me
+    </button>
+
+</section>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <span class="close-btn" onclick="closePopup()">✕</span>
+
+    <img
+        src="https://scontent.fmnl17-4.fna.fbcdn.net/v/t1.15752-9/671640102_1307865491463900_2161856088121564980_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFGQM31WgcUMvFFiHdy--MZSoF9Xu29KBxKgX1e7b0oHKntKpmhcaim4wbO0gKudS30bX0vsqUyr5mW4EdgDHM0&_nc_ohc=jRuUPAjFvGYQ7kNvwFJjiVe&_nc_oc=AdooJfH2YtT5Q_j05uSRi-6Dg7ZKtp0DuFWHOfHbjC4zaHtufNa4bkXa1p34X3Oa76Y&_nc_zt=23&_nc_ht=scontent.fmnl17-4.fna&_nc_ss=7c2a8&oh=03_Q7cD5QHEsp7Fb-Rg2fkzqmsYT17--voSfyNtWN0WMYkpKeCQjA&oe=6A2B1497"
+        alt="Profile Picture">
+
+</div>
+
+<script>
+
+function openPopup(){
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>

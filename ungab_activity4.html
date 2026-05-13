@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Night Relaxation</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpg" href="https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/688205124_2279788606093597_684205816024881746_n.jpg">
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.image-frame{
+    width:60%;
+
+    overflow:hidden;
+
+    border-radius:26px;
+
+    position:relative;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.45);
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.image-frame::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.28),
+        transparent 30%
+    );
+
+    pointer-events:none;
+}
+
+.relax-img{
+    width:100%;
+    display:block;
+
+    object-fit:cover;
+
+    aspect-ratio:16/9;
+}
+
+.music-box{
+    width:100%;
+
+    margin-top:24px;
+
+    background:rgba(250, 99, 225, 0.04);
+
+    border-radius:22px;
+
+    padding:16px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+iframe{
+    border-radius:16px;
+}
+
+@keyframes blink{
+    0%,100%{
+        opacity:0.2;
+    }
+    50%{
+        opacity:1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<section class="container">
+
+    <!-- IMAGE -->
+    <figure class="image-frame">
+        <img
+            src="https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/688205124_2279788606093597_684205816024881746_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFSRngs0bRBIw3Gqil7LViYgbjN7LbAWvGBuM3stsBa8c3eYT6djkkspDeziYhVQ6NagzyGcMpg-KBhsoaHdZVA&_nc_ohc=Fa8Twt5QSOwQ7kNvwHRf7K8&_nc_oc=AdoS5lKbNyBuCv39QBdFPij1LPfVXIjh6qXn59EsQV5viLzIreIpc-arPEIuqaHII6E&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7c2a8&oh=03_Q7cD5QFy6ADHMj42fGHjJSVwgtqt9Mn_pXJ_jINHLaOeFpxrAg&oe=6A2A5937"
+            alt="Relaxing Night"
+            class="relax-img"
+        >
+    </figure>
+
+    <!-- SPOTIFY MUSIC PLAYER -->
+    <div class="music-box">
+
+        <iframe
+            style="border-radius:16px"
+            src="https://open.spotify.com/embed/track/70LcF31zb1H0PyJoS1Sx1r?utm_source=generator"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
+
+</body>
+</html>

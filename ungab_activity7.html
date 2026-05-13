@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pagination Activity</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#111;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* PAGES */
+
+.page{
+    min-height:100vh;
+
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+
+    text-align:center;
+}
+
+.page.active{
+    display:flex;
+}
+
+/* PAGE 1 LOGIN */
+
+#page1{
+    background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+    url('https://scontent.fceb6-3.fna.fbcdn.net/v/t1.15752-9/688205124_2279788606093597_684205816024881746_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFSRngs0bRBIw3Gqil7LViYgbjN7LbAWvGBuM3stsBa8c3eYT6djkkspDeziYhVQ6NagzyGcMpg-KBhsoaHdZVA&_nc_ohc=Fa8Twt5QSOwQ7kNvwFp3sKC&_nc_oc=Adremg47jtU4NIYli7CuUS-kdFKhFHAG2cPbeElKClqTDZaOgMb1oGOheLdl81Y1lVg&_nc_zt=23&_nc_ht=scontent.fceb6-3.fna&_nc_ss=7b2a8&oh=03_Q7cD5QFziG6lKRGi1mj1B8dRRn0adFTpO75rz_7yNJNSD8E2fQ&oe=6A2B3A37');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.login-box{
+    width:350px;
+
+    background:rgba(0,0,0,0.45);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(10px);
+}
+
+.login-box h1{
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    border:none;
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:1rem;
+}
+
+/* BUTTON */
+
+button{
+    padding:14px 28px;
+
+    border:none;
+    border-radius:50px;
+
+    background:white;
+    color:#111;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+/* PAGE 2 */
+
+#page2{
+    background:#111;
+}
+
+.image-frame{
+    width:60%;
+    overflow:hidden;
+    border-radius:26px;
+}
+
+.image-frame img{
+    width:100%;
+    display:block;
+}
+
+.music-box{
+    width:60%;
+    margin-top:20px;
+}
+
+/* PAGE 3 */
+
+#page3{
+    background:#000;
+}
+
+#page3 img{
+    width:350px;
+    border-radius:20px;
+}
+
+/* PAGE 4 */
+
+#page4{
+    background:#000;
+}
+
+#page4 img{
+    width:350px;
+    border-radius:20px;
+}
+
+/* PAGE 5 */
+
+#page5{
+    background:
+    linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+#page5 h1{
+    font-size:3rem;
+}
+
+/* PAGINATION */
+
+.pagination{
+    position:fixed;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:10px;
+
+    z-index:999;
+}
+
+.pagination button{
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="page1">
+
+    <div class="login-box">
+
+        <h1>Login</h1>
+
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+
+        <button onclick="showPage(2)">
+            Log In
+        </button>
+
+    </div>
+
+</section>
+
+<!-- PAGE 2 -->
+
+<section class="page" id="page2">
+
+    <figure class="image-frame">
+
+        <img
+        src="https://scontent.fmnl17-3.fna.fbcdn.net/v/t1.15752-9/688205124_2279788606093597_684205816024881746_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFSRngs0bRBIw3Gqil7LViYgbjN7LbAWvGBuM3stsBa8c3eYT6djkkspDeziYhVQ6NagzyGcMpg-KBhsoaHdZVA&_nc_ohc=Fa8Twt5QSOwQ7kNvwHRf7K8&_nc_oc=AdoS5lKbNyBuCv39QBdFPij1LPfVXIjh6qXn59EsQV5viLzIreIpc-arPEIuqaHII6E&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_ss=7c2a8&oh=03_Q7cD5QFy6ADHMj42fGHjJSVwgtqt9Mn_pXJ_jINHLaOeFpxrAg&oe=6A2A5937">
+
+    </figure>
+
+    <div class="music-box">
+
+        <iframe
+            style="border-radius:16px"
+            src="https://open.spotify.com/embed/track/70LcF31zb1H0PyJoS1Sx1r?utm_source=generator"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+
+    </div>
+
+</section>
+
+<!-- PAGE 3 -->
+
+<section class="page" id="page3">
+
+    <img src="https://chatgpt.com/backend-api/estuary/content?id=file_00000000bc987209bfe029c70c9c5b1a&ts=494065&p=fs&cid=1&sig=14f3694fd4d5bd375636069cbfd42149cfe5835b6faeeed629004feb18667023&v=0">
+
+</section>
+
+<!-- PAGE 4 -->
+
+<section class="page" id="page4">
+
+    <img src="https://scontent.fceb6-3.fna.fbcdn.net/v/t1.15752-9/688205124_2279788606093597_684205816024881746_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFSRngs0bRBIw3Gqil7LViYgbjN7LbAWvGBuM3stsBa8c3eYT6djkkspDeziYhVQ6NagzyGcMpg-KBhsoaHdZVA&_nc_ohc=Fa8Twt5QSOwQ7kNvwFp3sKC&_nc_oc=Adremg47jtU4NIYli7CuUS-kdFKhFHAG2cPbeElKClqTDZaOgMb1oGOheLdl81Y1lVg&_nc_zt=23&_nc_ht=scontent.fceb6-3.fna&_nc_ss=7b2a8&oh=03_Q7cD5QFziG6lKRGi1mj1B8dRRn0adFTpO75rz_7yNJNSD8E2fQ&oe=6A2B3A37">
+
+</section>
+
+<!-- PAGE 5 -->
+
+<section class="page" id="page5">
+
+    <h1>So ako si Alvin Ungab, mao rato tanan</h1>
+
+</section>
+
+<!-- PAGINATION -->
+
+<div class="pagination">
+
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <button onclick="showPage(4)">4</button>
+    <button onclick="showPage(5)">5</button>
+
+</div>
+
+<script>
+
+function showPage(pageNumber){
+
+    const pages =
+    document.querySelectorAll(".page");
+
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document
+    .getElementById("page" + pageNumber)
+    .classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
